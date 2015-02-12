@@ -83,6 +83,170 @@
 					<section data-background="images/modern_api.png" data-background-size="1000px">
 					</section>
 				</section>
+				<section>
+					<section>
+						<blockquote>AngularJS is a client-side JavaScript Framework for adding interactivity to HTML.</blockquote>
+						<p class="fragment"><b>How</b> do we tell our <b>HTML</b> when to trigger our <b>JavaScript?</b></p>
+				        <pre class="fragment"><code data-trim contenteditable>
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;body&gt;
+ ....
+&lt;/body&gt;
+&lt;/html&gt;
+				        </code></pre>
+				        <pre class="fragment">
+				        	<code data-trim contenteditable>
+function Something(){
+ alert("Hello World!");
+}
+					        </code>
+				        </pre>
+					</section>
+				</section>
+				<section>
+					<section>
+					<h3>Directives</h3>
+					<p class="fragment"> A <b>Directive</b> is a marker on a HTML tag that tells Angular to run or reference some JavaScript code.
+						<pre class="fragment"><code data-trim contenteditable>
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;body ng-controller=&quot;StoreController&quot;&gt;
+....
+&lt;/body&gt;
+&lt;/html&gt;
+				        </code></pre>
+				        <pre class="fragment"><code data-trim contenteditable>
+function StoreController(){
+ alert("Hello World!");
+}
+				        </code></pre>
+				        <p class="fragment"><b>StoreController</b> is the name of the function to call.</p>
+				        <p class="fragment">It's a bad example :p</p>
+				        <p class="fragment"> But this is how we bind the behaviour!! <b>DIRECTIVES</b></p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Getting Started</h3>
+						<pre class="fragment"><code data-trim contenteditable>
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;link rel=&quot;stylesheet&quot;type=&quot;text/css&quot; href=&quot;bootstrap.min.css&quot;/&gt;
+ &lt;/head&gt;
+ &lt;body ng-controller=&quot;StoreController&quot;&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;angular.min.js&quot;&gt;&lt;/script&gt;
+ &lt;/body&gt;
+&lt;/html&gt;	
+						</code></pre>
+					</section>
+					<section>
+						<h3>Modules</h3>
+						<p class="fragment">Where we write pieces of our Angular application.</p>
+						<p class="fragment">Makes our code more maintainable, testable, and readable.</p>
+						<p class="fragment">Where we define dependencies for our app</p>
+					</section>
+					<section>
+						<h3>Creating Our First Module</h3>
+						<pre class="fragment"><code>
+var store = angular.module('store', []);
+						</code></pre>
+						<blockquote class="fragment">
+						<p>angular -> From AngularJS</p>
+						<p>store -> Application Name</p>
+						<p>[ ] -> Dependencies</p>
+						</blockquote>
+					</section>
+					<section>
+						<h3>Including Our Module</h3>
+						<pre class="fragment"><code data-trim contenteditable>
+&lt;!DOCTYPE HTML&gt;
+&lt;html ng-app=&quot;store&quot;&gt;
+ &lt;head&gt;
+  &lt;link rel=&quot;stylesheet&quot;type=&quot;text/css&quot; href=&quot;bootstrap.min.css&quot;/&gt;
+ &lt;/head&gt;
+ &lt;body ng-controller=&quot;StoreController&quot;&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;angular.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;app.js&quot;&gt;&lt;/script&gt;
+ &lt;/body&gt;
+&lt;/html&gt;	
+						</code></pre>
+						<p class="fragment">Did we use directive here?</p>
+						<p class="fragment">ng-app: Run this module when the page loads.</p>
+					</section>
+					<section>
+						<h3>Expressions</h3>
+						<pre class="fragment"><code data-trim contenteditable>	
+&lt;p&gt;   			&lt;p&gt;
+{{10+2}}    		 12
+&lt;/p&gt;  			&lt;/p&gt;
+						</code></pre>
+						<pre class="fragment"><code data-trim contenteditable>
+&lt;p&gt;			&lt;p&gt;
+{{&quot;hello&quot;+&quot;You&quot;}}       Hello You      
+&lt;/p&gt;			&lt;/p&gt;
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+					<h4>Controllers</h4>
+					<p class="fragment">They help us to get data on to the page</p>
+					<pre class="fragment"><code>
+var gem = {
+name: 'Docahedron',
+price: 2.95,
+description: 'It is an awesome gem!'
+}
+					</code></pre>
+					<p class="fragment">But the question is how do we display this data on to the page?</p>
+					<p class="fragment"></p>	
+					</section>
+					<section>
+					<h4>Controllers</h4>
+					<p class="fragment">Controllers are where we define our application's behaviour by defining functions and values.</p>
+					<pre class="fragment"><code data-trim contenteditable>
+(function(){
+	var app = angular.module('store',[]);
+	app.controller('StoreController', function($scope){
+		$scope.product = gem;		
+	});
+	var gem = {
+	name: 'Docahedron',
+	price: 2.95,
+	description: 'It is an awesome gem'
+	}
+})();
+					</code></pre>
+					</section>
+					<section>
+						<p class="fragment">Enuf of the theory. Lets write some code..!!</p>
+					</section>	
+				</section>
+				<section>
+					<p>Few Directives</p>
+					<table>
+						<tbody>
+							<tr>
+								<td>ng-show</td>
+								<td>directive shows or hides the given HTML element based on the expression provided to it</td>
+							<tr>
+							<tr>
+								<td>ng-hide</td>
+								<td>Opposite of ng-show</td>
+							<tr>
+							<tr>
+								<td>ng-repeat</td>
+								<td>To iterate on an array like each in ruby.</td>
+							<tr>
+							<tr>
+								<td>ng-model</td>
+								<td>This directive binds an input,select, textarea (or custom form control) to a property on the scope</td>
+							<tr>
+						</tbody>
+					</table>
+				</section>
 			</div>
 		</div>
 		<script src="lib/js/head.min.js"></script>
