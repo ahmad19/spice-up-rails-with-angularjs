@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>AngularJS & Rails</title>
+
+		<meta name="description" content="Spice up your rails application with angular js">
+		<meta name="author" content="Ahmad hamza">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<style type="text/css">
+			html.flowofarequest div.slide-background.present {
+				background-position:center;
+				background-size: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>AngularJS & Rails</h1>
+					<h3>Spice up your rails application with AngularJS</h3>
+					<p>
+						<small>Created by <a href="http://about.me/Ahmadhamza">Ahmad hamza</a> / <a href="http://github.com/ahmad19">@ahmad19</a></small>
+					</p>
+				</section>
+				<section>
+					<h2>Hi,</h2>
+				</section>
+				<section>
+					<h2 class="fragment">Why Angular?</h2>
+				</section>
+				<section id="fragments">
+					<p>If you're using JavaScript to create a dynamic website,</p>
+					<h3>Angular is a good choice.</h3>
+					<p class="fragment">Angular helps you organize your JavaScript</p>
+					<p class="fragment">Angular helps create responsive(as in fast) websites.</p>
+					<p class="fragment">Angular plays well with jQuery.</p>
+					<p class="fragment">Angular is easy to test.</p>
+				</section>
+				<section>
+					<h2 class="fragment">What is AngularJS?</h2>
+				</section>
+				<section>
+					<section>
+						<h3>Traditional Page</h3>
+					</section>					
+					<section data-background="images/flow_of_a_request.png" data-background-size="1000px">
+					</section>
+					<section>
+						<h3>A responsive website's page using Angular</h3>
+					</section>
+					<section data-background="images/flow_of_request_in_angularjs.png" data-background-size="1000px">
+					</section>
+					<section>
+						<h3>From an API perspective:</h3>
+					</section>
+					<section data-background="images/modern_api.png" data-background-size="1000px">
+					</section>
+				</section>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+	</body>
