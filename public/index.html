@@ -309,6 +309,152 @@ var gem = {
 						</tbody>
 					</table>
 				</section>
+				<section>
+					<section>
+						<h3> Integrate Angular with Rails </h3>
+					</section>
+					<section>
+						<h3> Gems Required </h3>
+						<pre class="fragment"><code>
+gem 'angularjs-rails'
+						</code></pre>
+						<pre class="fragment"><code>
+gem 'angular-ui-bootstrap-rails' #for bootstrap UI
+						</code></pre>
+					</section>
+					<section>
+						<h3> Set Up </h3>
+						<pre class="fragment"><code>
+# application.js
+//= require angular
+//= require angular-route
+//= require angular-resource
+//= require angular-ui-bootstrap
+						</code></pre>
+						<pre class="fragment"><code>
+&lt;html ng-app=&quot;app-name&quot;&gt;
+						</code></pre>
+					</section>
+					<section>
+						<h3> Structure the Application </h3>
+						<pre class="fragment"><code>
+# directories
+mkdir -p app/assets/javascripts/angular
+						</code></pre>
+						<pre class="fragment"><code>
+# application.js
+//= require angular
+//= require angular-route
+//= require angular-resource
+//= require angular-ui-bootstrap
+//= require angular/app
+//= require tree .
+						</code></pre>
+						<p class="fragment"> It is very important to require the angular before any of the angular files.</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Filters</h3>
+						<p class="fragment">
+							A filter formats the value of an expression for display to the user. They can be used in view templates, controllers or services and it is easy to define your own filter.
+							Usage: Filters can be added to expressions and directives using a pipe character.
+						</p>
+					</section>
+					<section>
+						<h3>
+							Multiple types of Filters:
+						</h3>
+						<table>
+							<thead>
+								<tr>
+									<th>Filter Usage</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Adding filters to expressions</td>
+									<td>{{ lastName | uppercase }}</td>
+								<tr>
+								<tr>
+									<td>Adding Filters to Directives</td>
+									<td>ng-repeat="x in names | orderBy:'country'"</td>
+								<tr>
+								<tr>
+									<td>Filtering Input</td>
+									<td>Use ng-model variable in the filter query.</td>
+								<tr>
+							</tbody>
+						</table>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Service</h3>
+					</section>
+					<section>
+						<h3>What is service?</h3>
+						<p class="fragment">The term <b>service</b> refers to a simple object that does some sort of work.<p>
+						<p class="fragment">It is typically <b>a stateless</b> and <b>a encapsulated</b> functionality</p>
+						<p class="fragment">Public members are functions not properties. Most often they are just objects called directly within your javascript.</p>
+					</section>
+					<section>
+						<h3>Why we need services?</h3>
+						<p class="fragment">2 of 5 SOLID principles of object oriented design are directly related to Services: </p>
+						<ul class="fragment">
+							<li>Single Responsibility Principle (SRP) </li>
+							<li>Dependency Inversion Principle (DIP)</li>
+						</ul>
+					</section>
+					<section>
+						<ul>
+							<li class="fragment">SRP teaches us that every object should have a single responsibility.</li>
+							<li class="fragment">Ex: Controller's responsibility to wire up the scope(which hold your models) to your views.</li>
+							<li class="fragment">Essentially a bridge between your models and views. But if it is also responsible to make ajax calls to fetch and update data, this the violation of the SRP principle.</li>
+						</ul>
+					</section>
+					<section>
+						<ul>
+							<li class="fragment">DIP comes in here, which states that object should depend on abstractions, not concretions. In languages like C# and Java, this means your objects depend on Interfaces instead of Classes</li>
+							<li class="fragment">In JavaScript you could look at any parameter of any function (constructor function or otherwise) as an abstraction, since you can pass in any object for that parameter so long as it has the members on it that are used within that method.</li>
+						</ul>
+					</section>
+					<section>
+						<ul>
+							<li class="fragment">But the key here is the ability to inject into other objects.</li>
+							<li class="fragment">This means that all of your controllers, directives, filters and other services should take in any external dependencies as parameters during construction.</li>
+							<li class="fragment">This allows you to have loosely coupled code and has the added benefit of making unit testing much easier</li>
+							<li class="fragment"><p class="fragment grow">This is called as <b>Dependency Injection</b></p></li>
+						</ul>
+					</section>
+					<section>
+						<h3>Creating a Custom Service</h3>
+						<ul>
+							<li>Notice that we are setting $scope.teams to a static array of teams. Let's change to access it via ajax call but again its not a duty of the controller so lets create a service to handle it and our controller will call the service.</li>
+							<li>
+							<pre><code>myapp.factory('People', function() {
+    return { };
+});							</code></pre></li>
+							<li>If we simple returns the object that is to be our service, why do we need all the other ceremony of myapp.factory?</li>
+							<li>
+								Factory method registers our service with Angular. This allows Angular Dependency Injection container to inject an instance of our service when we request it in other places. 
+							</li>
+						</ul>
+					</section>
+					<section>
+						<p class="fragment">Lets just use our static array inside our customer service to check the working of it.</p>
+						<p class="fragment">Now use Angular's built in Service through which we can call the data from the backend.</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Routes & Templates</h3>
+						<p class="fragment">So we did set up the other services. Now we need to set up our views and routes according to it.</p>
+						<p class="fragment">Gem: 'gem 'angular-rails-templates''</p>
+						<p class="fragment"></p>
+					</section>
+				</section>
 			</div>
 		</div>
 		<script src="lib/js/head.min.js"></script>
