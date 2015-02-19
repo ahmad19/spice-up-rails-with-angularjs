@@ -451,9 +451,50 @@ mkdir -p app/assets/javascripts/angular
 					<section>
 						<h3>Routes & Templates</h3>
 						<p class="fragment">So we did set up the other services. Now we need to set up our views and routes according to it.</p>
-						<p class="fragment">Gem: 'gem 'angular-rails-templates''</p>
+						<p class="fragment">gem 'angular-rails-templates'</p>
+					</section>
+					<section>
+						<h3>ngRoute</h3>
+						<p class="fragment">The ngRoute module provides routing and deeplinking services and directives for angular apps such as:</p>
+						<ul>
+							<li class="fragment">Directive: ngView</li>
+							<li class="fragment">Provider: $routeProvider</li>
+							<li class="fragment">Services: $route</li>
+							<li class="fragment">$routeParams</li>
+						</ul>
+					</section>
+					<section>
+						<p class="fragment">Create files in public folder.</p>
+						<p class="fragment">Append <b>ng-view</b> in the main container of the DOM.</p>
+						<p class="fragment">Already required <b>angular-route</b> in the manifest file, also include in the angular initialization.</p>
 						<p class="fragment"></p>
 					</section>
+					<section>
+						<h3>SetUp</h3>
+						<pre><code>
+myapp.config([
+ '$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    $routeProvider.when('/persons',{
+      templateUrl: '/templates/persons/index.html',
+      controller: 'PersonsListCtr'
+    });
+    $routeProvider.when('/persons/new', {
+     templateUrl: '/templates/persons/new.html',
+     controller: 'UserAddCtr'
+    });
+    $routeProvider.when('/persons/:id/edit', {
+     templateUrl: '/templates/persons/edit.html',
+     controller: "UserUpdateCtr"
+    });
+    $routeProvider.otherwise({
+     redirectTo: '/persons'
+    });
+ $locationProvider.html5Mode(true);
+ }
+]);							
+						</code></pre>
+					</section>
+					
 				</section>
 			</div>
 		</div>
