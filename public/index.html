@@ -464,35 +464,29 @@ mkdir -p app/assets/javascripts/angular
 						</ul>
 					</section>
 					<section>
-						<p class="fragment">Create files in public folder.</p>
+						<p class="fragment">Create files in public folder such as index.html etc.</p>
 						<p class="fragment">Append <b>ng-view</b> in the main container of the DOM.</p>
 						<p class="fragment">Already required <b>angular-route</b> in the manifest file, also include in the angular initialization.</p>
-						<p class="fragment"></p>
+						<pre class="fragment"><code><!-- Append this in the head section of html -->
+&lt;base href=&quot;/&quot;&gt;</code></pre>
 					</section>
 					<section>
-						<h3>SetUp</h3>
-						<pre><code>
-myapp.config([
- '$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+						<h3>Configurations</h3>
+						<pre><code>myapp.config(['$routeProvider', '$locationProvider',
+function($routeProvider, $locationProvider) {
     $routeProvider.when('/persons',{
       templateUrl: '/templates/persons/index.html',
       controller: 'PersonsListCtr'
-    });
-    $routeProvider.when('/persons/new', {
-     templateUrl: '/templates/persons/new.html',
-     controller: 'UserAddCtr'
-    });
-    $routeProvider.when('/persons/:id/edit', {
-     templateUrl: '/templates/persons/edit.html',
-     controller: "UserUpdateCtr"
     });
     $routeProvider.otherwise({
      redirectTo: '/persons'
     });
  $locationProvider.html5Mode(true);
  }
-]);							
-						</code></pre>
+]);</code></pre>
+					</section>
+					<section>
+						<h3></h3>
 					</section>
 					
 				</section>
